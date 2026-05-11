@@ -1,6 +1,18 @@
+# Environment variables
 .env
+
+# Python
+__pycache__/
+*.pyc
 venv/
+.venv/
+
+# Django
+db.sqlite3
+
+# Node
 node_modules/
 dist/
-__pycache__/
+
+# PyCharm
 .idea/
