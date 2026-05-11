@@ -257,69 +257,160 @@ const GlobalStyles = () => {
   return null;
 };
 
-/* ─── DATA ───────────────────────────────────────────────────── */
-const SKILLS = [
-  { name: "Python", level: 92, cat: "Core" },
-  { name: "Django / DRF", level: 88, cat: "Core" },
-  { name: "Machine Learning", level: 85, cat: "Data" },
-  { name: "Data Science", level: 87, cat: "Data" },
-  { name: "Pandas / NumPy", level: 90, cat: "Data" },
-  { name: "Scikit-learn", level: 82, cat: "Data" },
-  { name: "SQL / PostgreSQL", level: 80, cat: "Data" },
-  { name: "React / JS", level: 72, cat: "Web" },
-  { name: "REST APIs", level: 88, cat: "Web" },
-  { name: "Docker", level: 68, cat: "DevOps" },
-];
+/* ─── DATA + API HELPERS ─────────────────────────────────────── */
+const DEFAULT_PORTFOLIO = {
+  hero: {
+    status_badge: "Available for work",
+    first_name: "Mohtashim",
+    last_name: "Usmani",
+    role_tagline: "Data Scientist & Full-Stack Dev",
+    description:
+      "I build intelligent web applications and extract meaning from data — turning complex datasets into clear insights and shipping full-stack products powered by Python, Django & Machine Learning.",
+    cta_primary_label: "View My Work",
+    cta_primary_url: "#projects",
+    cta_secondary_label: "Get in Touch",
+    cta_secondary_url: "#contact",
+  },
+  about: {
+    heading: "Data-driven builder & problem solver",
+    full_name: "Mohtashim Usmani",
+    paragraph_one:
+      "I'm Mohtashim Usmani — a Data Scientist and Full-Stack Web Developer based in Pakistan. I sit at the intersection of data and engineering, equally comfortable training ML models and deploying them behind a polished web interface.",
+    paragraph_two:
+      "My work lives in Python and Django on the backend, where I design data pipelines, REST APIs, and intelligent systems. On the data side, I work across the full lifecycle — from raw data wrangling with Pandas to building and evaluating production-ready ML models.",
+    years_experience: 3,
+    projects_shipped: 15,
+    models_deployed: 5,
+    fun_stat_label: "Curiosity",
+  },
+  skills: [
+    { name: "Python", level: 92, cat: "Core" },
+    { name: "Django / DRF", level: 88, cat: "Core" },
+    { name: "Machine Learning", level: 85, cat: "Data" },
+    { name: "Data Science", level: 87, cat: "Data" },
+    { name: "Pandas / NumPy", level: 90, cat: "Data" },
+    { name: "Scikit-learn", level: 82, cat: "Data" },
+    { name: "SQL / PostgreSQL", level: 80, cat: "Data" },
+    { name: "React / JS", level: 72, cat: "Web" },
+    { name: "REST APIs", level: 88, cat: "Web" },
+    { name: "Docker", level: 68, cat: "DevOps" },
+  ],
+  projects: [
+    {
+      num: "01",
+      title: "AI Sales Forecasting Engine",
+      desc: "End-to-end ML pipeline that ingests historical sales data, trains a gradient-boosted model, and surfaces real-time predictions via a Django REST API. Reduced forecast error by ~23% over baseline.",
+      tags: ["Python", "Django", "Scikit-learn", "PostgreSQL", "React"],
+      status: "Featured",
+      color: "#4fffb0",
+    },
+    {
+      num: "02",
+      title: "Smart Data Dashboard",
+      desc: "Interactive analytics platform built with Django backend and React frontend. Supports CSV/Excel ingestion, automated EDA, and dynamic chart generation with export capabilities.",
+      tags: ["Django", "React", "Pandas", "Chart.js", "REST API"],
+      status: "Live",
+      color: "#3de8ff",
+    },
+    {
+      num: "03",
+      title: "NLP Sentiment Analyzer",
+      desc: "Web app that performs sentiment analysis and topic modeling on social media data. Trained on 500k+ tweets using transformer fine-tuning, deployed via Django with a clean dashboard UI.",
+      tags: ["Python", "HuggingFace", "Django", "NLP", "PostgreSQL"],
+      status: "Open Source",
+      color: "#b87fff",
+    },
+  ],
+  services: [
+    {
+      icon: "⬡",
+      title: "Full-Stack Web Apps",
+      desc: "From Django-powered APIs to polished frontends — I build complete, production-ready web applications that are fast, scalable, and maintainable.",
+    },
+    {
+      icon: "◈",
+      title: "Data Science & Analytics",
+      desc: "I transform raw datasets into actionable insights — through exploratory analysis, visualization dashboards, and automated reporting pipelines.",
+    },
+    {
+      icon: "◉",
+      title: "ML Model Development",
+      desc: "End-to-end machine learning — from problem framing and feature engineering to model training, evaluation, and deploying models via REST APIs.",
+    },
+    {
+      icon: "◎",
+      title: "API Design & Integration",
+      desc: "Clean, well-documented REST APIs with Django REST Framework. I make sure your data flows reliably between systems and third-party services.",
+    },
+  ],
+  socials: [
+    {
+      platform: "github",
+      url: "https://github.com/MohtashimUsmani",
+      label: "github.com/MohtashimUsmani",
+      position: 1,
+    },
+    {
+      platform: "linkedin",
+      url: "https://www.linkedin.com/in/mohtashim-usmani",
+      label: "linkedin.com/in/mohtashim-usmani",
+      position: 2,
+    },
+    {
+      platform: "email",
+      url: "mailto:mohtashimusmani09@gmail.com",
+      label: "mohtashimusmani09@gmail.com",
+      position: 3,
+    },
+  ],
+};
 
-const PROJECTS = [
-  {
-    num: "01",
-    title: "AI Sales Forecasting Engine",
-    desc: "End-to-end ML pipeline that ingests historical sales data, trains a gradient-boosted model, and surfaces real-time predictions via a Django REST API. Reduced forecast error by ~23% over baseline.",
-    tags: ["Python", "Django", "Scikit-learn", "PostgreSQL", "React"],
-    status: "Featured",
-    color: "#4fffb0",
-  },
-  {
-    num: "02",
-    title: "Smart Data Dashboard",
-    desc: "Interactive analytics platform built with Django backend and React frontend. Supports CSV/Excel ingestion, automated EDA, and dynamic chart generation with export capabilities.",
-    tags: ["Django", "React", "Pandas", "Chart.js", "REST API"],
-    status: "Live",
-    color: "#3de8ff",
-  },
-  {
-    num: "03",
-    title: "NLP Sentiment Analyzer",
-    desc: "Web app that performs sentiment analysis and topic modeling on social media data. Trained on 500k+ tweets using transformer fine-tuning, deployed via Django with a clean dashboard UI.",
-    tags: ["Python", "HuggingFace", "Django", "NLP", "PostgreSQL"],
-    status: "Open Source",
-    color: "#b87fff",
-  },
-];
+const API_BASE = import.meta?.env?.VITE_API_BASE_URL || "http://127.0.0.1:8000/api";
 
-const SERVICES = [
-  {
-    icon: "⬡",
-    title: "Full-Stack Web Apps",
-    desc: "From Django-powered APIs to polished frontends — I build complete, production-ready web applications that are fast, scalable, and maintainable.",
-  },
-  {
-    icon: "◈",
-    title: "Data Science & Analytics",
-    desc: "I transform raw datasets into actionable insights — through exploratory analysis, visualization dashboards, and automated reporting pipelines.",
-  },
-  {
-    icon: "◉",
-    title: "ML Model Development",
-    desc: "End-to-end machine learning — from problem framing and feature engineering to model training, evaluation, and deploying models via REST APIs.",
-  },
-  {
-    icon: "◎",
-    title: "API Design & Integration",
-    desc: "Clean, well-documented REST APIs with Django REST Framework. I make sure your data flows reliably between systems and third-party services.",
-  },
-];
+const normalizeSkills = (skills) =>
+  skills.map((skill) => ({
+    name: skill.name,
+    level: skill.level,
+    cat: skill.category || skill.cat,
+  }));
+
+const normalizeProjects = (projects) =>
+  projects.map((project) => ({
+    num: project.display_number || String(project.position || 0).padStart(2, "0"),
+    title: project.title,
+    desc: project.description || project.desc,
+    tags: (project.tags || []).map((tag) => tag.name || tag),
+    status: project.status,
+    color: project.accent_color || project.color,
+    github_url: project.github_url,
+    live_url: project.live_url,
+  }));
+
+const normalizeServices = (services) =>
+  services.map((service) => ({
+    icon: service.icon,
+    title: service.title,
+    desc: service.description || service.desc,
+  }));
+
+const normalizePortfolio = (data, fallback) => ({
+  hero: data?.hero || fallback.hero,
+  about: data?.about || fallback.about,
+  skills: data?.skills?.length ? normalizeSkills(data.skills) : fallback.skills,
+  projects: data?.projects?.length ? normalizeProjects(data.projects) : fallback.projects,
+  services: data?.services?.length ? normalizeServices(data.services) : fallback.services,
+  socials: data?.socials?.length
+    ? [...data.socials].sort((a, b) => (a.position ?? 0) - (b.position ?? 0))
+    : fallback.socials,
+});
+
+const getSocialHref = (link) => {
+  if (!link) return "#";
+  if (link.platform === "email" && !link.url.startsWith("mailto:")) {
+    return `mailto:${link.url}`;
+  }
+  return link.url;
+};
 
 /* ─── NAV ────────────────────────────────────────────────────── */
 function Nav({ menuOpen, setMenuOpen }) {
@@ -398,7 +489,7 @@ function Nav({ menuOpen, setMenuOpen }) {
 }
 
 /* ─── HERO ───────────────────────────────────────────────────── */
-function Hero() {
+function Hero({ hero, socials }) {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -476,7 +567,7 @@ function Hero() {
         <div className="mu-fade-up" style={{ display: "inline-flex", alignItems: "center", gap: 8, marginBottom: 28 }}>
           <span style={{ display: "inline-block", width: 8, height: 8, borderRadius: "50%", background: "#4fffb0", animation: "pulse-glow 2s infinite" }} />
           <span style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, letterSpacing: "0.16em", color: "var(--green)", textTransform: "uppercase" }}>
-            Available for work
+            {hero?.status_badge}
           </span>
         </div>
 
@@ -487,16 +578,16 @@ function Hero() {
           color: "var(--text)", lineHeight: 1.0,
           letterSpacing: "-0.04em", marginBottom: 8,
         }}>
-          MOHTASHIM
+          {hero?.first_name}
         </h1>
         <h1 className="mu-fade-up-2" style={{
           fontFamily: "var(--font-display)", fontWeight: 800,
           fontSize: "clamp(44px, 7vw, 84px)",
           lineHeight: 1.0, letterSpacing: "-0.04em", marginBottom: 24,
         }}>
-          <span style={{ color: "var(--green)" }}>USMANI</span>
+          <span style={{ color: "var(--green)" }}>{hero?.last_name}</span>
           <span style={{ color: "rgba(255,255,255,0.2)", fontSize: "0.6em", fontFamily: "var(--font-italic)", fontStyle: "italic", fontWeight: 400, marginLeft: 16, verticalAlign: "middle" }}>
-            — Data Scientist & Full-Stack Dev
+            — {hero?.role_tagline}
           </span>
         </h1>
 
@@ -506,27 +597,30 @@ function Hero() {
           color: "var(--text-muted)", maxWidth: 520, lineHeight: 1.8, marginBottom: 40,
           textAlign: 'left'
         }}>
-          I build intelligent web applications and extract meaning from data —
-          turning complex datasets into clear insights and shipping full-stack products
-          powered by Python, Django & Machine Learning.
+          {hero?.description}
         </p>
 
         {/* CTAs */}
         <div className="mu-fade-up-4" style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 56 }}>
-          <a href="#projects" className="mu-btn-primary">
-            View My Work <ArrowRight size={15} />
+          <a href={hero?.cta_primary_url || "#projects"} className="mu-btn-primary">
+            {hero?.cta_primary_label || "View My Work"} <ArrowRight size={15} />
           </a>
-          <a href="#contact" className="mu-btn-outline">
-            Get in Touch
+          <a href={hero?.cta_secondary_url || "#contact"} className="mu-btn-outline">
+            {hero?.cta_secondary_label || "Get in Touch"}
           </a>
         </div>
 
         {/* Socials */}
         <div className="mu-fade-up-5" style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <span style={{ fontFamily: "var(--font-display)", fontSize: 10, letterSpacing: "0.2em", color: "var(--text-muted)", textTransform: "uppercase", marginRight: 4 }}>Connect</span>
-          <a href="https://github.com/MohtashimUsmani" target="_blank" rel="noopener noreferrer" className="mu-social-icon"><FaGithub size={16} /></a>
-          <a href="https://www.linkedin.com/in/mohtashim-usmani" target="_blank" rel="noopener noreferrer" className="mu-social-icon"><FaLinkedinIn size={16} /></a>
-          <a href="mailto:mohtashimusmani09@gmail.com" className="mu-social-icon"><Mail size={16} /></a>
+          {socials?.map((link) => (
+            <a key={`${link.platform}-${link.url}`} href={getSocialHref(link)} target="_blank" rel="noopener noreferrer" className="mu-social-icon">
+              {link.platform === "github" && <FaGithub size={16} />}
+              {link.platform === "linkedin" && <FaLinkedinIn size={16} />}
+              {link.platform === "email" && <Mail size={16} />}
+              {!["github", "linkedin", "email"].includes(link.platform) && <ExternalLink size={16} />}
+            </a>
+          ))}
         </div>
       </div>
 
@@ -540,12 +634,12 @@ function Hero() {
 }
 
 /* ─── ABOUT ──────────────────────────────────────────────────── */
-function About() {
+function About({ about }) {
   const stats = [
-    { val: "3+", label: "Years Experience" },
-    { val: "15+", label: "Projects Shipped" },
-    { val: "5+", label: "ML Models Deployed" },
-    { val: "∞", label: "Curiosity" },
+    { val: `${about?.years_experience ?? 0}+`, label: "Years Experience" },
+    { val: `${about?.projects_shipped ?? 0}+`, label: "Projects Shipped" },
+    { val: `${about?.models_deployed ?? 0}+`, label: "ML Models Deployed" },
+    { val: "∞", label: about?.fun_stat_label || "Curiosity" },
   ];
 
   return (
@@ -559,15 +653,13 @@ function About() {
         <div>
           <div className="mu-section-label">About Me</div>
           <h2 className="mu-section-heading" style={{ marginBottom: 24 }}>
-            Data-driven<br />
-            <span style={{ color: "var(--green)" }}>builder</span> &{" "}
-            <span style={{ fontFamily: "var(--font-italic)", fontStyle: "italic", fontWeight: 400 }}>problem solver</span>
+            {about?.heading}
           </h2>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "var(--text-muted)", lineHeight: 1.9, marginBottom: 16, textAlign: 'left' }}>
-            I'm <strong style={{ color: "var(--text)", fontWeight: 500 }}>Mohtashim Usmani</strong> — a Data Scientist and Full-Stack Web Developer based in Pakistan. I sit at the intersection of data and engineering, equally comfortable training ML models and deploying them behind a polished web interface.
+          <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "var(--text-muted)", lineHeight: 1.9, marginBottom: 16, textAlign: "left" }}>
+            {about?.paragraph_one}
           </p>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "var(--text-muted)", lineHeight: 1.9, marginBottom: 32, textAlign: 'left' }}>
-            My work lives in Python and Django on the backend, where I design data pipelines, REST APIs, and intelligent systems. On the data side, I work across the full lifecycle — from raw data wrangling with Pandas to building and evaluating production-ready ML models.
+          <p style={{ fontFamily: "var(--font-body)", fontSize: 15, color: "var(--text-muted)", lineHeight: 1.9, marginBottom: 32, textAlign: "left" }}>
+            {about?.paragraph_two}
           </p>
           <div style={{ display: "flex", gap: 12 }}>
             <a href="https://github.com/MohtashimUsmani" target="_blank" rel="noopener noreferrer" className="mu-btn-primary">
@@ -608,7 +700,7 @@ function About() {
 }
 
 /* ─── SKILLS ─────────────────────────────────────────────────── */
-function Skills() {
+function Skills({ skills, services }) {
   const [visible, setVisible] = useState(false);
   const ref = useRef(null);
 
@@ -618,7 +710,7 @@ function Skills() {
     return () => obs.disconnect();
   }, []);
 
-  const cats = [...new Set(SKILLS.map(s => s.cat))];
+  const cats = [...new Set(skills.map((skill) => skill.cat))];
 
   return (
     <section id="skills" ref={ref} style={{ background: "var(--dark2)", padding: "120px 48px", borderTop: "1px solid var(--border)" }} className="section-pad">
@@ -638,7 +730,7 @@ function Skills() {
                 {cat === "Core" ? "Core" : cat === "Data" ? "Data & ML" : cat === "Web" ? "Web" : "DevOps"}
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-                {SKILLS.filter(s => s.cat === cat).map(skill => (
+                {skills.filter((skill) => skill.cat === cat).map((skill) => (
                   <div key={skill.name}>
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
                       <span style={{ fontFamily: "var(--font-display)", fontSize: 13, fontWeight: 700, color: "var(--text)" }}>{skill.name}</span>
@@ -659,7 +751,7 @@ function Skills() {
           <div className="mu-section-label">What I Offer</div>
           <h2 className="mu-section-heading" style={{ marginBottom: 48 }}>How I Can <span style={{ color: "var(--green)" }}>Help You</span></h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 2 }}>
-            {SERVICES.map((s, i) => (
+            {services.map((s, i) => (
               <div key={i} style={{
                 background: "var(--dark3)", padding: "36px 28px",
                 borderTop: "2px solid transparent",
@@ -682,7 +774,7 @@ function Skills() {
 }
 
 /* ─── PROJECTS ───────────────────────────────────────────────── */
-function Projects() {
+function Projects({ projects }) {
   return (
     <section id="projects" style={{ background: "var(--dark)", padding: "120px 48px", borderTop: "1px solid var(--border)" }} className="section-pad">
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
@@ -697,7 +789,7 @@ function Projects() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-          {PROJECTS.map((p, i) => (
+          {projects.map((p, i) => (
             <div key={i} className="mu-project-card">
               <div style={{ display: "grid", gridTemplateColumns: "80px 1fr auto", gap: 32, padding: "40px 40px", alignItems: "start" }} className="project-inner">
                 <style>{`@media(max-width:767px){.project-inner{grid-template-columns:1fr!important;gap:16px!important;padding:28px 20px!important}}`}</style>
@@ -719,12 +811,12 @@ function Projects() {
                   </div>
                   <p style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "var(--text-muted)", lineHeight: 1.8, maxWidth: 580, marginBottom: 20, textAlign: "left" }}>{p.desc}</p>
                   <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                    {p.tags.map(t => <span key={t} className="mu-tag">{t}</span>)}
+                    {p.tags.map((t) => <span key={t} className="mu-tag">{t}</span>)}
                   </div>
                 </div>
 
                 {/* Link */}
-                <a href="https://github.com/MohtashimUsmani" target="_blank" rel="noopener noreferrer"
+                <a href={p.github_url || p.live_url || "#"} target="_blank" rel="noopener noreferrer"
                   style={{ color: "var(--text-muted)", transition: "color 0.2s", marginTop: 4 }}
                   onMouseEnter={e => e.currentTarget.style.color = "var(--green)"}
                   onMouseLeave={e => e.currentTarget.style.color = "var(--text-muted)"}
@@ -741,7 +833,7 @@ function Projects() {
 }
 
 /* ─── CONTACT ────────────────────────────────────────────────── */
-function Contact() {
+function Contact({ socials }) {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
 
@@ -772,23 +864,31 @@ function Contact() {
 
           {/* Contact details */}
           <div style={{ display: "flex", flexDirection: "column", gap: 20, marginBottom: 40 }}>
-            {[
-              { icon: <Mail size={16} />, label: "Email", val: "mohtashimusmani09@gmail.com", href: "mailto:mohtashimusmani09@gmail.com" },
-              { icon: <FaGithub size={16} />, label: "GitHub", val: "github.com/MohtashimUsmani", href: "https://github.com/MohtashimUsmani" },
-              { icon: <FaLinkedinIn size={16} />, label: "LinkedIn", val: "linkedin.com/in/mohtashim-usmani", href: "https://www.linkedin.com/in/mohtashim-usmani" },
-            ].map((c, i) => (
-              <a key={i} href={c.href} target="_blank" rel="noopener noreferrer"
-                style={{ display: "flex", alignItems: "center", gap: 16, textDecoration: "none", padding: "16px 20px", background: "var(--dark3)", borderRadius: 2, border: "1px solid var(--border)", transition: "border-color 0.2s" }}
+            {socials.map((link, i) => {
+              const label = link.platform === "email" ? "Email" : link.platform.charAt(0).toUpperCase() + link.platform.slice(1);
+              const rawValue = link.label || link.url;
+              const value = rawValue.replace(/^mailto:/, "").replace(/^https?:\/\//, "").replace(/^www\./, "");
+              const icon = link.platform === "github"
+                ? <FaGithub size={16} />
+                : link.platform === "linkedin"
+                  ? <FaLinkedinIn size={16} />
+                  : <Mail size={16} />;
+
+              return (
+              <a key={i} href={getSocialHref(link)} target="_blank" rel="noopener noreferrer"
+                style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", padding: "16px 18px", background: "var(--dark3)", borderRadius: 2, border: "1px solid var(--border)", transition: "border-color 0.2s" }}
                 onMouseEnter={e => e.currentTarget.style.borderColor = "rgba(79,255,176,0.3)"}
                 onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border)"}
               >
-                <span style={{ color: "var(--green)" }}>{c.icon}</span>
-                <div>
-                  <div style={{ fontFamily: "var(--font-display)", fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", color: "var(--text-muted)", textTransform: "uppercase", marginBottom: 2 }}>{c.label}</div>
-                  <div style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "var(--text)" }}>{c.val}</div>
+
+                <span style={{ color: "var(--green)", display: "inline-flex", alignItems: "center", justifyContent: "center", width: 16 }}>{icon}</span>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", color: "var(--text-muted)", textTransform: "uppercase", marginBottom: 2 }}>{label}</div>
+                  <div>
+                  <div style={{  fontFamily: "var(--font-body)", fontSize: 12, color: "var(--text)" }}>{value}</div>
                 </div>
               </a>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -822,7 +922,7 @@ function Contact() {
 }
 
 /* ─── FOOTER ─────────────────────────────────────────────────── */
-function Footer() {
+function Footer({ socials }) {
   return (
     <footer style={{ background: "var(--dark)", borderTop: "1px solid var(--border)", padding: "32px 48px" }} className="footer-pad">
       <style>{`@media(max-width:767px){.footer-pad{padding:24px!important}}`}</style>
@@ -831,12 +931,17 @@ function Footer() {
           MU<span style={{ color: "var(--green)" }}>.</span>
         </span>
         <span style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "var(--text-muted)" }}>
-          © 2025 Mohtashim Usmani — Built with Django & React
+          © 2026 Mohtashim Usmani — Built with Django & React
         </span>
         <div style={{ display: "flex", gap: 10 }}>
-          <a href="https://github.com/MohtashimUsmani" target="_blank" rel="noopener noreferrer" className="mu-social-icon"><FaGithub size={15} /></a>
-          <a href="https://www.linkedin.com/in/mohtashim-usmani" target="_blank" rel="noopener noreferrer" className="mu-social-icon"><FaLinkedinIn size={15} /></a>
-          <a href="mailto:mohtashimusmani09@gmail.com" className="mu-social-icon"><Mail size={15} /></a>
+          {socials.map((link) => (
+            <a key={`${link.platform}-${link.url}`} href={getSocialHref(link)} target="_blank" rel="noopener noreferrer" className="mu-social-icon">
+              {link.platform === "github" && <FaGithub size={15} />}
+              {link.platform === "linkedin" && <FaLinkedinIn size={15} />}
+              {link.platform === "email" && <Mail size={15} />}
+              {!["github", "linkedin", "email"].includes(link.platform) && <ExternalLink size={15} />}
+            </a>
+          ))}
         </div>
       </div>
     </footer>
@@ -846,18 +951,44 @@ function Footer() {
 /* ─── ROOT ───────────────────────────────────────────────────── */
 export default function MohtashimPortfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [portfolio, setPortfolio] = useState(DEFAULT_PORTFOLIO);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    const loadPortfolio = async () => {
+      try {
+        const response = await fetch(`${API_BASE}/portfolio/`, { signal: controller.signal });
+        if (!response.ok) {
+          throw new Error(`API error ${response.status}`);
+        }
+        const data = await response.json();
+        setPortfolio(normalizePortfolio(data, DEFAULT_PORTFOLIO));
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          console.error("Failed to load portfolio data:", error);
+        }
+      }
+    };
+
+    loadPortfolio();
+
+    return () => {
+      controller.abort();
+    };
+  }, []);
 
   return (
     <>
       <GlobalStyles />
-      <div className="noise-overlay" />
       <Nav menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
+      <Hero hero={portfolio.hero} socials={portfolio.socials} />
+      <About about={portfolio.about} />
+      <Skills skills={portfolio.skills} services={portfolio.services} />
+      <Projects projects={portfolio.projects} />
+      <Contact socials={portfolio.socials} />
+      <Footer socials={portfolio.socials} />
     </>
   );
 }
+
