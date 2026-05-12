@@ -1,29 +1,36 @@
-# 1. Use an official Python runtime as a parent image
+# --- STAGE 1: Build the Frontend ---
+FROM node:20-alpine AS frontend-builder
+WORKDIR /app/frontend
+COPY frontend/package*.json ./
+RUN npm install
+COPY frontend/ ./
+RUN npm run build
+
+# --- STAGE 2: Build the Backend ---
 FROM python:3.11-slim
-
-# 2. Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# 3. Set work directory
 WORKDIR /app
 
-# 4. Install dependencies
-# We install system dependencies for psycopg2 (PostgreSQL)
+# Install system dependencies for Postgres (psycopg2)
 RUN apt-get update && apt-get install -y libpq-dev gcc && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt /app/
+# Install Python dependencies
+COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 5. Copy project
-COPY . /app/
+# Copy the Backend code
+COPY backend/ .
 
-# 6. Collect static files
+# Copy the built Frontend files from Stage 1
+# This places the HTML/CSS/JS inside your backend folder
+COPY --from=frontend-builder /app/frontend/dist ./frontend_dist
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+ENV PORT=8080
+
+# Collect static files (Django + Frontend assets)
 RUN python manage.py collectstatic --noinput
 
-# 7. Add this line right here! 
-EXPOSE 8000
+EXPOSE 8080
 
-# 7. Run the application
-# Replace 'core' with your actual project name (the folder with wsgi.py)
-CMD ["sh", "-c", "python manage.py migrate --noinput && python manage.py createsuperuser --noinput || true && gunicorn core.wsgi --bind 0.0.0.0:8000"]
+CMD ["gunicorn", "core.wsgi", "--bind", "0.0.0.0:8080"]
