@@ -27,12 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG") == "True"
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
-    ".railway.app",
+    ".zeabur.app",
     "localhost",
-    "127.0.0.1"
+    "127.0.0.1",
 ]
 
 
@@ -67,7 +67,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "frontend_dist"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,6 +128,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Where the built React assets live
+STATICFILES_DIRS = [
+    BASE_DIR / "frontend_dist",
+    BASE_DIR / "frontend_dist" / "assets",
+]
+
+# Where collectstatic will gather everything for production
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 CORS_ALLOWED_ORIGINS = [
     "https://your-vercel-url.vercel.app",
@@ -143,5 +151,3 @@ REST_FRAMEWORK = {
     ],
 }
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'

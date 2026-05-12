@@ -11,7 +11,9 @@ from .serializers import (
     SocialLinkSerializer,
     ContactMessageCreateSerializer,
 )
-
+from django.shortcuts import render
+def home(request):
+    return render(request, "index.html")
 
 class PortfolioView(APIView):
     """Return all active portfolio data in one response."""
