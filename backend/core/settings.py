@@ -20,25 +20,28 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+def _split_env(name: str, default: str = ""):
+    value = os.getenv(name, default)
+    return [item.strip() for item in value.split(",") if item.strip()]
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY", "dev-insecure-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = [
-    ".railway.app",
-    ".vercel.app",
-    "localhost",
-    "127.0.0.1"
-]
+ALLOWED_HOSTS = _split_env(
+    "ALLOWED_HOSTS",
+    "localhost,127.0.0.1",
+)
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://*.vercel.app",
-]
+CSRF_TRUSTED_ORIGINS = _split_env(
+    "CSRF_TRUSTED_ORIGINS",
+    "http://localhost:5173",
+)
 
 
 # Application definition
@@ -72,7 +75,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "frontend_dist"],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -92,7 +95,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv("DATABASE_URL")
+        default=os.getenv("DATABASE_URL", f"sqlite:///{BASE_DIR / 'db.sqlite3'}")
     )
 }
 
@@ -131,20 +134,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
-
-# Where the built React assets live
-STATICFILES_DIRS = [
-    BASE_DIR / "frontend_dist",
-    BASE_DIR / "frontend_dist" / "assets",
-]
+STATIC_URL = '/static/'
 
 # Where collectstatic will gather everything for production
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-CORS_ALLOWED_ORIGINS = [
-    "https://your-vercel-url.vercel.app",
-]
+CORS_ALLOWED_ORIGINS = _split_env(
+    "CORS_ALLOWED_ORIGINS",
+    "http://localhost:5173",
+)
 
 
 REST_FRAMEWORK = {
