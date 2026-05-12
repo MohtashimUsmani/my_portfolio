@@ -72,9 +72,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database — uses DATABASE_URL env var in production, SQLite locally
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv("DATABASE_URL", f"sqlite:///{BASE_DIR / 'db.sqlite3'}")
-    )
+    'default': dj_database_url.config(default=os.environ.get('postgresql://neondb_owner:npg_XygCNnm1j0dx@ep-holy-dream-aptxm0k5-pooler.c-7.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'))
 }
 
 AUTH_PASSWORD_VALIDATORS = [
