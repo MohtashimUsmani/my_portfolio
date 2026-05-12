@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, generics
+from django.http import JsonResponse
 from .models import Hero, About, Skill, Project, Service, SocialLink
 from .serializers import (
     HeroSerializer,
@@ -11,9 +12,23 @@ from .serializers import (
     SocialLinkSerializer,
     ContactMessageCreateSerializer,
 )
-from django.shortcuts import render
+
 def home(request):
-    return render(request, "index.html")
+    return JsonResponse(
+        {
+            "message": "Portfolio API is running.",
+            "endpoints": [
+                "/api/portfolio/",
+                "/api/hero/",
+                "/api/about/",
+                "/api/skills/",
+                "/api/projects/",
+                "/api/services/",
+                "/api/socials/",
+                "/api/contact/",
+            ],
+        }
+    )
 
 class PortfolioView(APIView):
     """Return all active portfolio data in one response."""

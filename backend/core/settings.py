@@ -31,7 +31,7 @@ def _split_env(name: str, default: str = ""):
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-insecure-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "False") == "True"
+DEBUG = os.getenv("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = _split_env(
     "ALLOWED_HOSTS",

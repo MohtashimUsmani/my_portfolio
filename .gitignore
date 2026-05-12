@@ -1,20 +1,26 @@
-# Environment variables
-.env
-
 # Python
 __pycache__/
-*.pyc
-venv/
-.venv/
+*.py[cod]
+*.pyo
+*.pyd
 
 # Django
-db.sqlite3
-backend/staticfiles/
-backend/frontend_dist/
+*.sqlite3
+staticfiles/
+
+# Environment files
+.env
+.env.*
 
 # Node
 node_modules/
 dist/
 
-# PyCharm
+# IDE
 .idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
