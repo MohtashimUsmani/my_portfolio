@@ -19,10 +19,9 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ['myportfolio-a4khbv3r.b4a.run', 'localhost', '127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = _split_env(
-    "CSRF_TRUSTED_ORIGINS",
-    "http://localhost:5173",
-)
+CSRF_TRUSTED_ORIGINS = [
+    'https://myportfolio-a4khbv3r.b4a.run',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
