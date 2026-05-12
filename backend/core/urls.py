@@ -19,7 +19,7 @@ from django.urls import path, re_path
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('admin/', admin.path),
-    # This serves your frontend index.html for the root and any sub-pages
-    re_path(r'^.*$', TemplateView.as_view(template_name='index.html')), 
+    path('admin/', admin.site.urls),
+    # This catches everything else and sends it to your Frontend
+    re_path(r'^.*$', TemplateView.as_view(template_name='index.html')),
 ]
