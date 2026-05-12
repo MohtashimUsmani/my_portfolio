@@ -26,4 +26,4 @@ EXPOSE 8000
 
 # 7. Run the application
 # Replace 'core' with your actual project name (the folder with wsgi.py)
-CMD ["gunicorn", "core.wsgi", "--bind", "0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py migrate --noinput && gunicorn core.wsgi --bind 0.0.0.0:8000"]
