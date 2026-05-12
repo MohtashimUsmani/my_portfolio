@@ -55,10 +55,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'core.urls'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, '../frontend/dist/assets'), # Adjust based on your build structure
-]
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -97,8 +93,13 @@ USE_TZ = True
 
 # Static files — WhiteNoise serves them in production
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_DIRS = [
+    FRONTEND_DIR,
+]
+
+FRONTEND_DIR = os.path.join(BASE_DIR.parent, 'frontend', 'dist')
 
 # CORS — allow your Vercel frontend URL
 CORS_ALLOWED_ORIGINS = _split_env(
