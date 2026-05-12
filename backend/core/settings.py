@@ -17,10 +17,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "dev-insecure-secret-key-change-in-producti
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = _split_env(
-    "ALLOWED_HOSTS",
-    "localhost,127.0.0.1",
-)
+ALLOWED_HOSTS = ['myportfolio-a4khbv3r.b4a.run', 'localhost', '127.0.0.1']
 
 CSRF_TRUSTED_ORIGINS = _split_env(
     "CSRF_TRUSTED_ORIGINS",
