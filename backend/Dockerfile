@@ -21,6 +21,9 @@ COPY . /app/
 # 6. Collect static files
 RUN python manage.py collectstatic --noinput
 
+# 7. Add this line right here! 
+EXPOSE 8000
+
 # 7. Run the application
 # Replace 'core' with your actual project name (the folder with wsgi.py)
 CMD ["gunicorn", "core.wsgi", "--bind", "0.0.0.0:8000"]
