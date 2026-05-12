@@ -17,10 +17,15 @@ SECRET_KEY = os.getenv("SECRET_KEY", "dev-insecure-secret-key-change-in-producti
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['myportfolio-a4khbv3r.b4a.run', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = [
+    os.environ.get("BACK4APP_URL", "myportfolio-auyxqoov.b4a.run"), 
+    "localhost", 
+    "127.0.0.1"
+]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://myportfolio-a4khbv3r.b4a.run',
+    "https://myportfolio-auyxqoov.b4a.run",
+    "https://myportfolio-a4khbv3r.b4a.run",
 ]
 
 INSTALLED_APPS = [
