@@ -23,4 +23,4 @@ RUN python manage.py collectstatic --noinput
 
 # 7. Run the application
 # Replace 'core' with your actual project name (the folder with wsgi.py)
-CMD ["gunicorn", "core.wsgi", "--bind", "0.0.0.0:8080"]
+CMD ["gunicorn", "core.wsgi", "--bind", "0.0.0.0:8000"]
